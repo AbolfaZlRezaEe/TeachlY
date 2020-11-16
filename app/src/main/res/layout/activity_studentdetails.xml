@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Views.Activitys.StudentDetails">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_studentDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gray100">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            app:contentInsetStart="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tv_addStudent_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/vazir_bold"
+                    android:text="اضافه کردن دانش آموز"
+                    android:textColor="@color/orange800"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_addStudent_back"
+                    style="@style/Widget.App.Button.OutlinedButton.IconOnly"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="4dp"
+                    app:icon="@drawable/ic_arrow_black_18dp"
+                    app:iconSize="30dp"
+                    app:iconTint="@color/gray900"
+                    app:strokeWidth="0dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_addStudent_delete"
+                    style="@style/Widget.App.Button.OutlinedButton.IconOnly"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="4dp"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    app:icon="@drawable/ic_trash_black_18dp"
+                    app:iconSize="30dp"
+                    app:iconTint="@color/gray900"
+                    app:strokeWidth="0dp" />
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/appbar_studentDetails"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginEnd="14dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etl_studentDetails_firstName"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:hint="نام"
+                app:endIconDrawable="@drawable/ic_person_black_18dp"
+                app:endIconMode="custom"
+                app:endIconTint="@color/colorSecondary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_studentDetails_firstName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etl_studentDetails_lastName"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etl_studentDetails_firstName"
+                android:layout_marginTop="12dp"
+                android:hint="نام خانوادگی"
+                app:endIconDrawable="@drawable/ic_person_black_18dp"
+                app:endIconMode="custom"
+                app:endIconTint="@color/colorSecondary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_studentDetails_lastName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etl_studentDetails_nationalityCode"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etl_studentDetails_lastName"
+                android:layout_marginTop="12dp"
+                android:hint="کد ملی"
+                app:endIconDrawable="@drawable/ic_person_black_18dp"
+                app:endIconMode="custom"
+                app:endIconTint="@color/colorSecondary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_studentDetails_nationalityCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etl_studentDetails_phoneNumber"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etl_studentDetails_nationalityCode"
+                android:layout_marginTop="12dp"
+                android:hint="شماره تلفن همراه"
+                app:endIconDrawable="@drawable/ic_person_black_18dp"
+                app:endIconMode="custom"
+                app:endIconTint="@color/colorSecondary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_studentDetails_phoneNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etl_studentDetails_schoolName"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="250dp"
+                android:layout_alignParentEnd="true"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etl_studentDetails_phoneNumber"
+                android:layout_marginTop="12dp"
+                android:hint="نام مدرسه"
+                app:endIconDrawable="@drawable/ic_school_black_18dp"
+                app:endIconMode="custom"
+                app:endIconTint="@color/colorSecondary">
+
+                <AutoCompleteTextView
+                    android:id="@+id/ctv_studentDetails_schoolName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etl_studentDetails_Grade"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etl_studentDetails_schoolName"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="12dp"
+                android:hint="مقطع تحصیلی"
+                app:endIconDrawable="@drawable/ic_grade_black_18dp"
+                app:endIconMode="custom"
+                app:endIconTint="@color/colorSecondary">
+
+                <AutoCompleteTextView
+                    android:id="@+id/ctv_studentDetails_grade"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etl_studentDetails_age"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etl_studentDetails_Grade"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="12dp"
+                android:hint="سن"
+                app:endIconDrawable="@drawable/ic_person_black_18dp"
+                app:endIconMode="custom"
+                app:endIconTint="@color/colorSecondary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_studentDetails_age"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etl_studentDetails_age"
+                android:text="شما بعدا می توانید مشخصات دانش آموز خود را \n ویرایش نمایید"
+                android:fontFamily="@font/vazir_medium"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:background="@color/blue100"
+                android:padding="10dp"
+                android:layout_marginTop="34dp"
+                android:textSize="15sp"
+                android:layout_marginStart="14dp"
+                android:layout_marginEnd="14dp"/>
+        </RelativeLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_studentDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        app:fabSize="auto"
+        app:maxImageSize="35dp"
+        app:srcCompat="@drawable/ic_done_black_18dp"
+        app:tint="@android:color/white" />
+
+</RelativeLayout>

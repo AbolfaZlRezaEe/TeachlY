@@ -3,53 +3,90 @@ package com.example.teachely.Views.Activitys;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.teachely.DataBaseManager.AppDataBase;
+import com.example.teachely.DataBaseManager.StudentDao;
+import com.example.teachely.Model.Student;
 import com.example.teachely.R;
 import com.example.teachely.RecyclerView.StudentAdapter;
-import com.example.teachely.Views.Activitys.Fragments.MainFragments.StudentFragment;
+import com.example.teachely.SharedPrefernce.SharePrefsKey;
+import com.example.teachely.SharedPrefernce.UserManager;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+import java.util.List;
 
-    private static final int REQUEST_ACTIVITY = 15;
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    public static final int REQUEST_RESULT = 290;
+    public static final String REQUEST_CALL_BACK = "CallBack";
     private TextView tvUserName;
     private MaterialButton btnGrade;
     private ExtendedFloatingActionButton fabAddStudent;
+    private StudentAdapter studentAdapter;
+    private StudentDao studentDao;
+    private UserManager userManager;
+    private RecyclerView recyclerView;
+    private TextView tvNoStudent;
+    private ImageView ivNoStudent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initViews();
-        fragmentTransaction();
+        userManager = new UserManager(this);
+        studentDao = AppDataBase.getAppDataBase(this).getStudentDao();
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
+        studentAdapter = new StudentAdapter(getStudents());
+        if (getStudents().isEmpty()) {
+            recyclerView.setVisibility(View.GONE);
+            ivNoStudent.setVisibility(View.VISIBLE);
+            tvNoStudent.setVisibility(View.VISIBLE);
+        }
+        recyclerView.setAdapter(studentAdapter);
+        initializeUserInformation();
     }
 
-    private void initViews(){
-        tvUserName=findViewById(R.id.tv_main_username);
-        btnGrade=findViewById(R.id.btn_main_grade);
-        fabAddStudent=findViewById(R.id.fab_main_AddStudent);
+    private void initViews() {
+        tvUserName = findViewById(R.id.tv_main_username);
+        recyclerView = findViewById(R.id.rv_main);
+        btnGrade = findViewById(R.id.btn_main_grade);
+        fabAddStudent = findViewById(R.id.fab_main_AddStudent);
+        tvNoStudent = findViewById(R.id.tv_main_noStudent);
+        ivNoStudent = findViewById(R.id.iv_main_noStudent);
         fabAddStudent.setOnClickListener(this);
         btnGrade.setOnClickListener(this);
     }
-    private void fragmentTransaction(){
-        FragmentTransaction transaction=getSupportFragmentManager().beginTransaction();
-        transaction.add(R.id.frame_main_container,new StudentFragment());
-        transaction.commit();
+
+
+    private void initializeUserInformation() {
+        String userName = userManager.getFirstName() + " " + userManager.getLastName();
+        tvUserName.setText(userName);
+        String grade = userManager.getStringField(SharePrefsKey.GRADE_KEY);
+        btnGrade.setText(grade);
+    }
+
+    private List<Student> getStudents() {
+        return studentDao.getStudents();
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.btn_main_grade:
                 break;
             case R.id.fab_main_AddStudent:
-                Intent intent =new Intent(MainActivity.this,AddStudentActivity.class);
-                startActivityForResult(intent,REQUEST_ACTIVITY);
+                Intent intent = new Intent(MainActivity.this, StudentDetails.class);
+                startActivityForResult(intent, REQUEST_RESULT);
                 break;
         }
     }
@@ -57,5 +94,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_RESULT && resultCode == RESULT_OK && data != null) {
+            Student student = data.getParcelableExtra(REQUEST_CALL_BACK);
+            if (student != null) {
+                studentAdapter.addStudent(student);
+                studentDao.addStudent(student);
+                recyclerView.smoothScrollToPosition(0);
+            } else
+                Toast.makeText(this, "خطای نامشخص!", Toast.LENGTH_SHORT).show();
+
+        }
     }
 }

@@ -16,7 +16,7 @@ import java.util.List;
 
 public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentViewHolder> {
 
-    private List<Student> students = new ArrayList<>();
+    private List<Student> students;
 
     public StudentAdapter(List<Student> students) {
         this.students = students;
@@ -33,6 +33,10 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
         holder.bindStudent(students.get(position));
     }
 
+    public void addStudent(Student student){
+        students.add(0,student);
+        notifyItemInserted(0);
+    }
     @Override
     public int getItemCount() {
         return students.size();
@@ -52,10 +56,10 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
         }
 
         public void bindStudent(Student student) {
-            String fullName = student.getFirstName() + student.getLastName();
+            String fullName = student.getFirstName() +" "+ student.getLastName();
             name.setText(fullName);
             grade.setText(student.getGrade());
-            score.setText(student.getScore());
+            score.setText(String.valueOf(student.getScore()));
         }
     }
 }

@@ -15,6 +15,7 @@ public abstract class AppDataBase extends RoomDatabase {
     public static AppDataBase getAppDataBase(Context context){
         if (appDataBase== null){
             appDataBase= Room.databaseBuilder(context.getApplicationContext(),AppDataBase.class,"db_teachly_app")
+                    .allowMainThreadQueries()
                     .build();
         }
         return appDataBase;

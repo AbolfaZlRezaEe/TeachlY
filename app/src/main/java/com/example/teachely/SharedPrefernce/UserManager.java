@@ -12,17 +12,17 @@ public class UserManager {
 
     public void saveUserInformation(String firstName, String lastName, String schoolName, String gender, int age) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("first_name", firstName);
-        editor.putString("last_name", lastName);
-        editor.putString("school_name", schoolName);
-        editor.putString("gender", gender);
-        editor.putInt("age", age);
+        editor.putString(SharePrefsKey.FIRST_NAME_KEY, firstName);
+        editor.putString(SharePrefsKey.LAST_NAME_KEY, lastName);
+        editor.putString(SharePrefsKey.SCHOOL_NAME_KEY, schoolName);
+        editor.putString(SharePrefsKey.GENDER_KEY, gender);
+        editor.putInt(SharePrefsKey.AGE_KEY, age);
         editor.apply();
     }
 
     public boolean checkInformation() {
-        String firstName = sharedPreferences.getString("first_name", null);
-        String lastName = sharedPreferences.getString("last_name", null);
+        String firstName = sharedPreferences.getString(SharePrefsKey.FIRST_NAME_KEY, null);
+        String lastName = sharedPreferences.getString(SharePrefsKey.LAST_NAME_KEY, null);
         if (firstName != null && lastName != null) {
             return true;
         }
@@ -47,23 +47,26 @@ public class UserManager {
         editor.apply();
     }
 
+    public String getStringField(String key){
+        return sharedPreferences.getString(key,null);
+    }
     public String getFirstName() {
-        return sharedPreferences.getString("first_name", "");
+        return sharedPreferences.getString(SharePrefsKey.FIRST_NAME_KEY, "");
     }
 
     public String getLastName() {
-        return sharedPreferences.getString("last_name", "");
+        return sharedPreferences.getString(SharePrefsKey.LAST_NAME_KEY, "");
     }
 
     public String getSchoolName() {
-        return sharedPreferences.getString("school_name", "");
+        return sharedPreferences.getString(SharePrefsKey.SCHOOL_NAME_KEY, "");
     }
 
     public String getGender() {
-        return sharedPreferences.getString("gender", "");
+        return sharedPreferences.getString(SharePrefsKey.GENDER_KEY, "");
     }
 
     public int getAge() {
-        return sharedPreferences.getInt("age", 0);
+        return sharedPreferences.getInt(SharePrefsKey.AGE_KEY, 0);
     }
 }
