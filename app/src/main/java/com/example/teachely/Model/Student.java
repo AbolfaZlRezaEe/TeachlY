@@ -19,11 +19,11 @@ public class Student implements Parcelable {
     private String schoolName;
     private String grade;
     @ColumnInfo(name = "phone_number")
-    private String phoneNumber;
+    private long phoneNumber;
     @ColumnInfo(name = "nationality_code")
-    private int nationalityCode;
+    private long nationalityCode;
     private int age;
-    private int score;
+    private long score;
 
     public Student() {
 
@@ -35,10 +35,10 @@ public class Student implements Parcelable {
         lastName = in.readString();
         schoolName = in.readString();
         grade = in.readString();
-        phoneNumber = in.readString();
-        nationalityCode = in.readInt();
+        phoneNumber = in.readLong();
+        nationalityCode = in.readLong();
         age = in.readInt();
-        score = in.readInt();
+        score = in.readLong();
     }
 
     public static final Creator<Student> CREATOR = new Creator<Student>() {
@@ -77,11 +77,11 @@ public class Student implements Parcelable {
         this.lastName = lastName;
     }
 
-    public int getNationalityCode() {
+    public long getNationalityCode() {
         return nationalityCode;
     }
 
-    public void setNationalityCode(int nationalityCode) {
+    public void setNationalityCode(long nationalityCode) {
         this.nationalityCode = nationalityCode;
     }
 
@@ -109,19 +109,19 @@ public class Student implements Parcelable {
         this.grade = grade;
     }
 
-    public int getScore() {
+    public long getScore() {
         return score;
     }
 
-    public void setScore(int score) {
+    public void setScore(long score) {
         this.score = score;
     }
 
-    public String getPhoneNumber() {
+    public long getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
+    public void setPhoneNumber(long phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -137,9 +137,9 @@ public class Student implements Parcelable {
         dest.writeString(lastName);
         dest.writeString(schoolName);
         dest.writeString(grade);
-        dest.writeString(phoneNumber);
-        dest.writeInt(nationalityCode);
+        dest.writeLong(phoneNumber);
+        dest.writeLong(nationalityCode);
         dest.writeInt(age);
-        dest.writeInt(score);
+        dest.writeLong(score);
     }
 }

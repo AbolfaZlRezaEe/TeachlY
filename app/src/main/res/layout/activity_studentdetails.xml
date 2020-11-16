@@ -93,7 +93,9 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_studentDetails_firstName"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:maxLines="1"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -111,7 +113,9 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_studentDetails_lastName"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:maxLines="1"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -130,7 +134,9 @@
                     android:id="@+id/et_studentDetails_nationalityCode"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="number"/>
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:maxLength="10"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -149,7 +155,9 @@
                     android:id="@+id/et_studentDetails_phoneNumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="number"/>
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:maxLength="11"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -161,15 +169,13 @@
                 android:layout_below="@id/etl_studentDetails_phoneNumber"
                 android:layout_marginTop="12dp"
                 android:hint="نام مدرسه"
-                app:endIconDrawable="@drawable/ic_school_black_18dp"
-                app:endIconMode="custom"
                 app:endIconTint="@color/colorSecondary">
 
                 <AutoCompleteTextView
                     android:id="@+id/ctv_studentDetails_schoolName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text" />
+                    android:inputType="none" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -181,15 +187,13 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="12dp"
                 android:hint="مقطع تحصیلی"
-                app:endIconDrawable="@drawable/ic_grade_black_18dp"
-                app:endIconMode="custom"
                 app:endIconTint="@color/colorSecondary">
 
                 <AutoCompleteTextView
                     android:id="@+id/ctv_studentDetails_grade"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text" />
+                    android:inputType="none" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -209,7 +213,9 @@
                     android:id="@+id/et_studentDetails_age"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="number"/>
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:maxLines="1"/>
             </com.google.android.material.textfield.TextInputLayout>
 
 

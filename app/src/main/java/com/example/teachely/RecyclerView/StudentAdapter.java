@@ -58,7 +58,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
         public void bindStudent(Student student) {
             String fullName = student.getFirstName() +" "+ student.getLastName();
             name.setText(fullName);
-            grade.setText(student.getGrade());
+            //grade.setText(student.getGrade());
             score.setText(String.valueOf(student.getScore()));
         }
     }

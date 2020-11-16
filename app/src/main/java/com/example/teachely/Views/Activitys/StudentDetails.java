@@ -23,8 +23,6 @@ import com.google.android.material.textfield.TextInputLayout;
 
 public class StudentDetails extends AppCompatActivity implements View.OnClickListener {
 
-    private String[] schoolArray;
-    private String[] gradeArray;
     private UserManager userManager;
     private TextInputLayout etlFirstName;
     private TextInputLayout etlLastName;
@@ -81,11 +79,12 @@ public class StudentDetails extends AppCompatActivity implements View.OnClickLis
 
     private void initializeCTV() {
         //initialize SchoolName Adapter
-        schoolArray = new String[]{userManager.getFirstName()};
+        String[] schoolArray = new String[]{userManager.getSchoolName()};
         ArrayAdapter<String> schoolAdapter = new ArrayAdapter<String>(this, R.layout.school_item, schoolArray);
+        ctvSchoolName.setThreshold(0);
         ctvSchoolName.setAdapter(schoolAdapter);
         //initialize Grade Adapter
-        gradeArray = new String[]{userManager.getStringField(SharePrefsKey.GRADE_KEY)};
+        String[] gradeArray = new String[]{userManager.getStringField(SharePrefsKey.GRADE_KEY)};
         ArrayAdapter<String> gradeAdapter = new ArrayAdapter<String>(this, R.layout.grade_item, gradeArray);
         ctvGrade.setAdapter(gradeAdapter);
         ctvSchoolName.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -151,8 +150,8 @@ public class StudentDetails extends AppCompatActivity implements View.OnClickLis
                 student.setSchoolName(school);
                 student.setGrade(grade);
                 student.setAge(Integer.parseInt(etAge.getText().toString()));
-                student.setNationalityCode(Integer.parseInt(etNationalityCode.getText().toString()));
-                student.setPhoneNumber(etPhoneNumber.getText().toString());
+                student.setNationalityCode(Long.parseLong(etNationalityCode.getText().toString()));
+                student.setPhoneNumber(Long.parseLong(etPhoneNumber.getText().toString()));
                 Intent intent = new Intent(StudentDetails.this, MainActivity.class);
                 intent.putExtra(MainActivity.REQUEST_CALL_BACK, student);
                 setResult(RESULT_OK, intent);
