@@ -2,7 +2,6 @@ package com.example.teachely.Views.Activitys;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -45,14 +44,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initViews();
         userManager = new UserManager(this);
         studentDao = AppDataBase.getAppDataBase(this).getStudentDao();
+        studentAdapter = new StudentAdapter();
         recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
-        studentAdapter = new StudentAdapter(getStudents());
-        if (getStudents().isEmpty()) {
+        recyclerView.setAdapter(studentAdapter);
+        List<Student> students = studentDao.getStudents();
+        studentAdapter.addAll(students);
+        if (students.isEmpty()) {
             recyclerView.setVisibility(View.GONE);
             ivNoStudent.setVisibility(View.VISIBLE);
             tvNoStudent.setVisibility(View.VISIBLE);
         }
-        recyclerView.setAdapter(studentAdapter);
         initializeUserInformation();
     }
 
@@ -75,10 +76,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnGrade.setText(grade);
     }
 
-    private List<Student> getStudents() {
-        return studentDao.getStudents();
-    }
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -97,9 +94,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (requestCode == REQUEST_RESULT && resultCode == RESULT_OK && data != null) {
             Student student = data.getParcelableExtra(REQUEST_CALL_BACK);
             if (student != null) {
-                studentAdapter.addStudent(student);
                 studentDao.addStudent(student);
-                recyclerView.smoothScrollToPosition(0);
+                studentAdapter.addStudent(student);
             } else
                 Toast.makeText(this, "خطای نامشخص!", Toast.LENGTH_SHORT).show();
 

@@ -197,11 +197,31 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etl_studentDetails_Major"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etl_studentDetails_Grade"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="12dp"
+                android:hint="رشته تحصیلی"
+                app:endIconTint="@color/colorSecondary"
+                android:visibility="gone">
+
+                <AutoCompleteTextView
+                    android:id="@+id/ctv_studentDetails_Major"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:visibility="gone"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/etl_studentDetails_age"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/etl_studentDetails_Grade"
+                android:layout_below="@id/etl_studentDetails_Major"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="12dp"
                 android:hint="سن"

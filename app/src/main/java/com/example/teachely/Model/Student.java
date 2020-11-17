@@ -17,6 +17,7 @@ public class Student implements Parcelable {
     private String lastName;
     @ColumnInfo(name = "school_name")
     private String schoolName;
+    private String major;
     private String grade;
     @ColumnInfo(name = "phone_number")
     private long phoneNumber;
@@ -29,12 +30,20 @@ public class Student implements Parcelable {
 
     }
 
+    public String getGrade() {
+        return grade;
+    }
+
+    public void setGrade(String grade) {
+        this.grade = grade;
+    }
+
     protected Student(Parcel in) {
         id = in.readLong();
         firstName = in.readString();
         lastName = in.readString();
         schoolName = in.readString();
-        grade = in.readString();
+        major = in.readString();
         phoneNumber = in.readLong();
         nationalityCode = in.readLong();
         age = in.readInt();
@@ -101,12 +110,12 @@ public class Student implements Parcelable {
         this.schoolName = schoolName;
     }
 
-    public String getGrade() {
-        return grade;
+    public String getMajor() {
+        return major;
     }
 
-    public void setGrade(String grade) {
-        this.grade = grade;
+    public void setMajor(String major) {
+        this.major = major;
     }
 
     public long getScore() {
@@ -136,7 +145,7 @@ public class Student implements Parcelable {
         dest.writeString(firstName);
         dest.writeString(lastName);
         dest.writeString(schoolName);
-        dest.writeString(grade);
+        dest.writeString(major);
         dest.writeLong(phoneNumber);
         dest.writeLong(nationalityCode);
         dest.writeInt(age);

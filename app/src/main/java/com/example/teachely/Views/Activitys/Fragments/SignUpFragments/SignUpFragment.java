@@ -61,13 +61,13 @@ public class SignUpFragment extends Fragment implements View.OnClickListener {
             age = Integer.parseInt(etAge.getText().toString());
 
         }
-        if (etFirstName.getText().length() < 0) {
+        if (etFirstName.getText().length() == 0) {
             etlFirstName.setError("لطفا نام خود را وارد نمایید!");
         }
-        if (etLastName.getText().length() < 0) {
+        if (etLastName.getText().length() == 0) {
             etlLastName.setError("لطفا نام خانوادگی خود را وارد نمایید");
         }
-        if (etAge.getText().length() < 0)
+        if (etAge.getText().length() == 0)
             etlAge.setError("لطفا سن خود را وارد نمایید");
 
     }

@@ -16,10 +16,9 @@ import java.util.List;
 
 public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentViewHolder> {
 
-    private List<Student> students;
+    private List<Student> students = new ArrayList<>();
 
-    public StudentAdapter(List<Student> students) {
-        this.students = students;
+    public StudentAdapter() {
     }
 
     @NonNull
@@ -33,10 +32,16 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
         holder.bindStudent(students.get(position));
     }
 
-    public void addStudent(Student student){
-        students.add(0,student);
+    public void addStudent(Student student) {
+        students.add(0, student);
         notifyItemInserted(0);
     }
+
+    public void addAll(List<Student> students) {
+        this.students.addAll(students);
+        notifyDataSetChanged();
+    }
+
     @Override
     public int getItemCount() {
         return students.size();
@@ -45,20 +50,25 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
     public class StudentViewHolder extends RecyclerView.ViewHolder {
 
         private TextView name;
-        private TextView grade;
+        private TextView major;
         private TextView score;
 
         public StudentViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.tv_studentItem_username);
-            grade = itemView.findViewById(R.id.tv_studentItem_Grade);
+            major = itemView.findViewById(R.id.tv_studentItem_Major);
             score = itemView.findViewById(R.id.tv_studentItem_score);
         }
 
         public void bindStudent(Student student) {
-            String fullName = student.getFirstName() +" "+ student.getLastName();
+            String fullName = student.getFirstName() + " " + student.getLastName();
             name.setText(fullName);
-            //grade.setText(student.getGrade());
+            String grade=student.getGrade();
+            String majorText=student.getMajor();
+            if (majorText.length()!=0) {
+                major.setText(majorText);
+            }else
+                major.setText(grade);
             score.setText(String.valueOf(student.getScore()));
         }
     }

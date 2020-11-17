@@ -44,7 +44,7 @@
             android:textSize="14sp"/>
 
         <TextView
-            android:id="@+id/tv_studentItem_Grade"
+            android:id="@+id/tv_studentItem_Major"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_studentItem_username"
