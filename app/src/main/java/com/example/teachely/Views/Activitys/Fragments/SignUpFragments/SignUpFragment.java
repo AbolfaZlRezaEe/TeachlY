@@ -37,7 +37,7 @@ public class SignUpFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        receiveInformation= (OnReceiveInformation) context;
+        receiveInformation = (OnReceiveInformation) context;
     }
 
     @Nullable
@@ -60,11 +60,14 @@ public class SignUpFragment extends Fragment implements View.OnClickListener {
             lastName = etLastName.getText().toString();
             age = Integer.parseInt(etAge.getText().toString());
 
-        } else if (etFirstName.getText().length() < 0) {
+        }
+        if (etFirstName.getText().length() == 0) {
             etlFirstName.setError("لطفا نام خود را وارد نمایید!");
-        } else if (etLastName.getText().length() < 0) {
+        }
+        if (etLastName.getText().length() == 0) {
             etlLastName.setError("لطفا نام خانوادگی خود را وارد نمایید");
-        } else
+        }
+        if (etAge.getText().length() == 0)
             etlAge.setError("لطفا سن خود را وارد نمایید");
 
     }

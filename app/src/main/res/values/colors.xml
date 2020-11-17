@@ -7,7 +7,9 @@
     <color name="colorSecondary">#F9AA33</color>
     <color name="orange100">#7EFFCE84</color>
     <color name="orange800">#B4710B</color>
+    <color name="gray50">#80F4F4F4</color>
     <color name="gray100">#EAEAEA</color>
+    <color name="gray500">#808080</color>
     <color name="gray900">#242424</color>
 
 </resources>

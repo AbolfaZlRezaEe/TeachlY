@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="4dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="8dp"
+    app:cardElevation="2dp"
+    app:cardCornerRadius="8dp"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
+        <ImageView
+            android:id="@+id/iv_studentItem_contact"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="4dp"
+            android:background="@drawable/shape_circle_white"
+            app:srcCompat="@drawable/ic_contact_white_18dp"
+            app:tint="@color/gray500"
+            android:padding="8dp"/>
+
+        <TextView
+            android:id="@+id/tv_studentItem_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@id/iv_studentItem_contact"
+            android:text="ابوالفضل رضایی"
+            android:fontFamily="@font/vazir_medium"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="14dp"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/tv_studentItem_Major"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_studentItem_username"
+            android:text="رشته ریاضی"
+            android:textColor="@color/orange800"
+            android:fontFamily="@font/vazir_medium"
+            android:layout_toStartOf="@id/iv_studentItem_contact"
+            android:layout_marginEnd="14dp"
+            android:textSize="12sp"
+            android:padding="2dp"/>
+
+        <ImageView
+            android:id="@+id/iv_studentItem_score"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="14dp"
+            app:srcCompat="@drawable/ic_equalizer_black_18dp"
+            app:tint="@color/gray500"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/tv_studentItem_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="224"
+            android:fontFamily="@font/vazir_bold"
+            android:layout_below="@id/iv_studentItem_score"
+            android:layout_alignStart="@id/iv_studentItem_score"
+            android:layout_alignEnd="@id/iv_studentItem_score"
+            android:layout_marginStart="14dp"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:layout_alignParentStart="true"/>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

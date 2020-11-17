@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.teachely.R;
+import com.example.teachely.SharedPrefernce.SharePrefsKey;
 import com.example.teachely.SharedPrefernce.UserManager;
 import com.example.teachely.Views.Activitys.Fragments.SignUpFragments.GradeFragment;
 import com.example.teachely.Views.Activitys.Fragments.SignUpFragments.SignUpFragment;
@@ -30,6 +31,7 @@ public class WelcomeActivity extends AppCompatActivity implements SignUpFragment
     private TextView tvMassage;
     private String gender;
     private UserManager userManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,15 +110,15 @@ public class WelcomeActivity extends AppCompatActivity implements SignUpFragment
     @Override
     public void onEducationReceive(String grade, String elementaryFoundation, String middleFoundation, String highFoundation, String studyLesson) {
         if (grade != null)
-            userManager.saveStringField("grade", grade);
+            userManager.saveStringField(SharePrefsKey.GRADE_KEY, grade);
         if (elementaryFoundation != null)
-            userManager.saveStringField("elementary_foundation", elementaryFoundation);
+            userManager.saveStringField(SharePrefsKey.ELEMENTARY_KEY, elementaryFoundation);
         if (middleFoundation != null)
-            userManager.saveStringField("middle_foundation", middleFoundation);
+            userManager.saveStringField(SharePrefsKey.MIDDLE_KEY, middleFoundation);
         if (highFoundation != null)
-            userManager.saveStringField("high_foundation", highFoundation);
+            userManager.saveStringField(SharePrefsKey.HIGH_KEY, highFoundation);
         if (studyLesson != null)
-            userManager.saveStringField("study_lesson", studyLesson);
+            userManager.saveStringField(SharePrefsKey.LESSON_KEY, studyLesson);
     }
 
 }
