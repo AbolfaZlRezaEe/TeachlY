@@ -1,4 +1,4 @@
-package com.example.teachely.Model;
+package com.example.teachely.Model.Model;
 
 import android.os.Parcel;
 import android.os.Parcelable;

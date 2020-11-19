@@ -1,4 +1,4 @@
-package com.example.teachely.DataBaseManager;
+package com.example.teachely.Model.DataBase;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -6,7 +6,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.example.teachely.Model.Student;
+import com.example.teachely.Model.Model.Student;
 
 import java.util.List;
 

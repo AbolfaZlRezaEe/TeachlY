@@ -9,9 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TeachelY">
-        <activity android:name=".Views.Activitys.StudentDetails"></activity>
-        <activity android:name=".Views.Activitys.MainActivity" />
-        <activity android:name=".Views.Activitys.WelcomeActivity">
+        <activity android:name=".SignUp.SignUpActivity"></activity>
+        <activity android:name=".StudentDetails.StudentDetails" />
+        <activity android:name=".Main.MainActivity" />
+        <activity android:name=".Intro.IntroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,19 +1,19 @@
-package com.example.teachely.Views.Activitys;
+package com.example.teachely.StudentDetails;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.opengl.Visibility;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 
-import com.example.teachely.Model.Student;
+import com.example.teachely.Main.MainActivity;
+import com.example.teachely.Model.Model.Student;
 import com.example.teachely.R;
-import com.example.teachely.SharedPrefernce.SharePrefsKey;
-import com.example.teachely.SharedPrefernce.UserManager;
+import com.example.teachely.Model.SharedPrefernce.SharePrefsKey;
+import com.example.teachely.Model.SharedPrefernce.UserManager;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;

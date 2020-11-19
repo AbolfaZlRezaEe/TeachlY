@@ -1,4 +1,4 @@
-package com.example.teachely.DataBaseManager;
+package com.example.teachely.Model.DataBase;
 
 import android.content.Context;
 
@@ -6,7 +6,7 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import com.example.teachely.Model.Student;
+import com.example.teachely.Model.Model.Student;
 
 @Database(version = 1,exportSchema = false,entities = {Student.class})
 public abstract class AppDataBase extends RoomDatabase {

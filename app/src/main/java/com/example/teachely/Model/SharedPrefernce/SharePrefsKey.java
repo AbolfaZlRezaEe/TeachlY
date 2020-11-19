@@ -1,4 +1,4 @@
-package com.example.teachely.SharedPrefernce;
+package com.example.teachely.Model.SharedPrefernce;
 
 public class SharePrefsKey {
     public static final String GRADE_KEY = "grade";

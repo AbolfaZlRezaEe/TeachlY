@@ -1,4 +1,4 @@
-package com.example.teachely.RecyclerView;
+package com.example.teachely.Model.RecyclerViewAdapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,7 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.teachely.Model.Student;
+import com.example.teachely.Model.Model.Student;
 import com.example.teachely.R;
 
 import java.util.ArrayList;

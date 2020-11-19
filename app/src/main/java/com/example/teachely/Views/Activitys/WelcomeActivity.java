@@ -1,4 +1,4 @@
-package com.example.teachely.Views.Activitys;
+/*package com.example.teachely.Views.Activitys;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -14,14 +14,13 @@ import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.teachely.R;
-import com.example.teachely.SharedPrefernce.SharePrefsKey;
-import com.example.teachely.SharedPrefernce.UserManager;
+import com.example.teachely.DataBaseManager.SharedPrefernce.SharePrefsKey;
+import com.example.teachely.DataBaseManager.SharedPrefernce.UserManager;
 import com.example.teachely.Views.Activitys.Fragments.SignUpFragments.GradeFragment;
 import com.example.teachely.Views.Activitys.Fragments.SignUpFragments.SignUpFragment;
 import com.example.teachely.Views.Activitys.Fragments.SignUpFragments.WelcomeFirstFragment;
 
-public class WelcomeActivity extends AppCompatActivity implements SignUpFragment.OnReceiveInformation
-        , GradeFragment.OnReceiveSchoolName {
+public class WelcomeActivity extends AppCompatActivity {
 
     private String firstName;
     private String lastName;
@@ -121,4 +120,4 @@ public class WelcomeActivity extends AppCompatActivity implements SignUpFragment
             userManager.saveStringField(SharePrefsKey.LESSON_KEY, studyLesson);
     }
 
-}
+*/

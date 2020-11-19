@@ -1,4 +1,4 @@
-package com.example.teachely.SharedPrefernce;
+package com.example.teachely.Model.SharedPrefernce;
 
 import android.content.Context;
 import android.content.SharedPreferences;
