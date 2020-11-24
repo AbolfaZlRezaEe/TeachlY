@@ -10,13 +10,12 @@ public class UserManager {
         sharedPreferences = context.getSharedPreferences("user_information", Context.MODE_PRIVATE);
     }
 
-    public void saveUserInformation(String firstName, String lastName, String schoolName, String gender, int age) {
+    public void saveTeacherInformation(String firstName, String lastName,int age, String gender) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(SharePrefsKey.FIRST_NAME_KEY, firstName);
         editor.putString(SharePrefsKey.LAST_NAME_KEY, lastName);
-        editor.putString(SharePrefsKey.SCHOOL_NAME_KEY, schoolName);
-        editor.putString(SharePrefsKey.GENDER_KEY, gender);
         editor.putInt(SharePrefsKey.AGE_KEY, age);
+        editor.putString(SharePrefsKey.GENDER_KEY, gender);
         editor.apply();
     }
 
@@ -49,24 +48,5 @@ public class UserManager {
 
     public String getStringField(String key){
         return sharedPreferences.getString(key,null);
-    }
-    public String getFirstName() {
-        return sharedPreferences.getString(SharePrefsKey.FIRST_NAME_KEY, "");
-    }
-
-    public String getLastName() {
-        return sharedPreferences.getString(SharePrefsKey.LAST_NAME_KEY, "");
-    }
-
-    public String getSchoolName() {
-        return sharedPreferences.getString(SharePrefsKey.SCHOOL_NAME_KEY, "");
-    }
-
-    public String getGender() {
-        return sharedPreferences.getString(SharePrefsKey.GENDER_KEY, "");
-    }
-
-    public int getAge() {
-        return sharedPreferences.getInt(SharePrefsKey.AGE_KEY, 0);
     }
 }

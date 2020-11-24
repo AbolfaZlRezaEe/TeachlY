@@ -83,7 +83,7 @@ public class StudentDetails extends AppCompatActivity implements View.OnClickLis
 
     private void initializeCTV() {
         //initialize SchoolName Adapter
-        String[] schoolArray = new String[]{userManager.getSchoolName()};
+        String[] schoolArray = new String[]{userManager.getStringField(SharePrefsKey.SCHOOL_NAME_KEY)};
         ArrayAdapter<String> schoolAdapter = new ArrayAdapter<String>(this, R.layout.school_item, schoolArray);
         ctvSchoolName.setAdapter(schoolAdapter);
         ctvSchoolName.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -113,12 +113,12 @@ public class StudentDetails extends AppCompatActivity implements View.OnClickLis
             }
         });
         //initialize Major Adapter
-        String lessonkey=userManager.getStringField(SharePrefsKey.LESSON_KEY);
-        if (userManager.getStringField(SharePrefsKey.LESSON_KEY) != null) {
+        String lessonkey=userManager.getStringField(SharePrefsKey.SCHOOL_FIELD_KEY);
+        if (userManager.getStringField(SharePrefsKey.SCHOOL_FIELD_KEY) != null) {
             etlMajor.setVisibility(View.VISIBLE);
             ctvMajor.setVisibility(View.VISIBLE);
             majorVisibility=true;
-            String[] majorArray = new String[]{userManager.getStringField(SharePrefsKey.LESSON_KEY)};
+            String[] majorArray = new String[]{userManager.getStringField(SharePrefsKey.SCHOOL_FIELD_KEY)};
             ArrayAdapter<String> majorAdapter = new ArrayAdapter<String>(this, R.layout.major_item, majorArray);
             ctvMajor.setAdapter(majorAdapter);
             ctvMajor.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

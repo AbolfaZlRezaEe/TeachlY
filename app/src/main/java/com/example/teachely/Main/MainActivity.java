@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     private void initializeUserInformation() {
-        String userName = userManager.getFirstName() + " " + userManager.getLastName();
+        String userName = userManager.getStringField(SharePrefsKey.FIRST_NAME_KEY) + " " + userManager.getStringField(SharePrefsKey.LAST_NAME_KEY);
         tvUserName.setText(userName);
         String grade = userManager.getStringField(SharePrefsKey.GRADE_KEY);
         btnGrade.setText(grade);

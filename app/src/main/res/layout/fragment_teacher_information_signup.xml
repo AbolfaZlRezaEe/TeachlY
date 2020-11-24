@@ -1,117 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<androidx.core.widget.NestedScrollView android:layout_width="match_parent"
+<RelativeLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_above="@id/imageView"
-    android:fillViewport="true"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <RelativeLayout
-        android:id="@+id/vg_teacherI"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:id="@+id/tv_teacherI_dec"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:layout_above="@id/imageView_teacherI">
+        <RelativeLayout
+            android:id="@+id/vg_teacherI"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-           android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="46dp"
-            android:layout_marginEnd="24dp"
-            android:fontFamily="@font/vazir_medium"
-            android:text="لطفا برای ثبت نام \nمشخصات فردی خود را وارد نمایید"
-            android:textColor="@color/gray900"
-            android:textSize="15sp"/>
+            android:layout_height="match_parent">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/etl_teacherI_FirstName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_teacherI_dec"
-            android:layout_marginTop="56dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="24dp"
-            android:hint="نام"
-            app:boxBackgroundColor="@android:color/white">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_teacherI_FirstName"
+            <TextView
+                android:id="@+id/tv_teacherI_dec"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:maxLines="1"
-                android:inputType="text"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/etl_teacherI_LastName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/etl_teacherI_FirstName"
-            android:layout_marginTop="24dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="24dp"
-            android:hint="نام خانوادگی"
-            app:boxBackgroundColor="@android:color/white">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_teacherI_LastName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:maxLines="1"
-                android:inputType="text"/>
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/etl_teacherI_Age"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_below="@id/etl_teacherI_LastName"
-            android:layout_marginTop="24dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="24dp"
-            android:hint="سن"
-            app:boxBackgroundColor="@android:color/white">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_teacherI_Age"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:maxLines="1"
-                android:maxLength="2"
-                android:inputType="number"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-        <RadioGroup
-            android:id="@+id/radioGroup_teacherI_gender"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_alignParentEnd="true"
-            android:gravity="center_horizontal"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginTop="24dp"
-            android:layout_below="@id/etl_teacherI_Age">
-
-            <RadioButton
-                android:id="@+id/radioButton_teacherI_male"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="46dp"
+                android:layout_marginEnd="24dp"
                 android:fontFamily="@font/vazir_medium"
+                android:text="لطفا برای ثبت نام \nمشخصات فردی خود را وارد نمایید"
                 android:textColor="@color/gray900"
-                android:textSize="15sp"
-                android:text="آقا"
-                android:layout_marginEnd="8dp"/>
-            <RadioButton
-                android:id="@+id/radioButton_teacher_female"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/vazir_medium"
-                android:textColor="@color/gray900"
-                android:textSize="15sp"
-                android:text="خانم"
-                android:layout_marginStart="8dp"/>
-        </RadioGroup>
-    </RelativeLayout>
+                android:textSize="15sp"/>
 
-</androidx.core.widget.NestedScrollView>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etl_teacherI_FirstName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_teacherI_dec"
+                android:layout_marginTop="56dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:hint="نام"
+                app:boxBackgroundColor="@android:color/white">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_teacherI_FirstName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:inputType="text"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etl_teacherI_LastName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etl_teacherI_FirstName"
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:hint="نام خانوادگی"
+                app:boxBackgroundColor="@android:color/white">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_teacherI_LastName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:inputType="text"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etl_teacherI_Age"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/etl_teacherI_LastName"
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:hint="سن"
+                app:boxBackgroundColor="@android:color/white">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_teacherI_Age"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:maxLength="2"
+                    android:inputType="number"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <RadioGroup
+                android:id="@+id/radioGroup_teacherI_gender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_alignParentEnd="true"
+                android:gravity="center_horizontal"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_below="@id/etl_teacherI_Age">
+
+                <RadioButton
+                    android:id="@+id/radioButton_teacherI_male"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/vazir_medium"
+                    android:textColor="@color/gray900"
+                    android:textSize="15sp"
+                    android:text="آقا"
+                    android:layout_marginEnd="8dp"/>
+                <RadioButton
+                    android:id="@+id/radioButton_teacher_female"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/vazir_medium"
+                    android:textColor="@color/gray900"
+                    android:textSize="15sp"
+                    android:text="خانم"
+                    android:layout_marginStart="8dp"/>
+            </RadioGroup>
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+    <ImageView
+        android:id="@+id/imageView_teacherI"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/gray100"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_teacherI_next"
+        style="@style/Widget.App.Button.OutlinedButton.IconOnly"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="56dp"
+        android:backgroundTint="@color/colorSecondary"
+        app:cornerRadius="10dp"
+        app:icon="@drawable/ic_arrow_next_black_18dp"
+        app:iconSize="40sp"
+        app:iconTint="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:strokeWidth="0dp" />
+
+</RelativeLayout>

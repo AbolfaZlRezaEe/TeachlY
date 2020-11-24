@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.teachely.Main.MainActivity;
+import com.example.teachely.Model.SharedPrefernce.SharePrefsKey;
 import com.example.teachely.R;
 import com.example.teachely.Model.SharedPrefernce.UserManager;
 import com.example.teachely.SignUp.SignUpActivity;
@@ -32,6 +34,10 @@ public class IntroActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
         userManager = new UserManager(this);
+        if(userManager.getStringField(SharePrefsKey.GRADE_KEY)!=null){
+            Intent intent=new Intent(IntroActivity.this, MainActivity.class);
+            startActivity(intent);
+        }
         initViews();
         introViewPagerAdapter = new IntroViewPagerAdapter(this);
         viewPager.setAdapter(introViewPagerAdapter);
