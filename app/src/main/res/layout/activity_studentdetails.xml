@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Views.Activitys.StudentDetails">
+    tools:context=".StudentDetails.StudentDetails">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar_studentDetails"
@@ -42,7 +42,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="4dp"
-                    app:icon="@drawable/ic_arrow_black_18dp"
+                    app:icon="@drawable/ic_arrow_back_black_18dp"
                     app:iconSize="30dp"
                     app:iconTint="@color/gray900"
                     app:strokeWidth="0dp" />

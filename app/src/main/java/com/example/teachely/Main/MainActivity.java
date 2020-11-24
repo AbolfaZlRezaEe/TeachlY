@@ -1,4 +1,4 @@
-package com.example.teachely.Views.Activitys;
+package com.example.teachely.Main;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,13 +12,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.teachely.DataBaseManager.AppDataBase;
-import com.example.teachely.DataBaseManager.StudentDao;
-import com.example.teachely.Model.Student;
+import com.example.teachely.Model.DataBase.AppDataBase;
+import com.example.teachely.Model.DataBase.StudentDao;
+import com.example.teachely.Model.Model.Student;
 import com.example.teachely.R;
-import com.example.teachely.RecyclerView.StudentAdapter;
-import com.example.teachely.SharedPrefernce.SharePrefsKey;
-import com.example.teachely.SharedPrefernce.UserManager;
+import com.example.teachely.Model.RecyclerViewAdapter.StudentAdapter;
+import com.example.teachely.Model.SharedPrefernce.SharePrefsKey;
+import com.example.teachely.Model.SharedPrefernce.UserManager;
+import com.example.teachely.StudentDetails.StudentDetails;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
@@ -70,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     private void initializeUserInformation() {
-        String userName = userManager.getFirstName() + " " + userManager.getLastName();
+        String userName = userManager.getStringField(SharePrefsKey.FIRST_NAME_KEY) + " " + userManager.getStringField(SharePrefsKey.LAST_NAME_KEY);
         tvUserName.setText(userName);
         String grade = userManager.getStringField(SharePrefsKey.GRADE_KEY);
         btnGrade.setText(grade);
